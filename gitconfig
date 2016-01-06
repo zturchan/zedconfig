@@ -1,0 +1,11 @@
+[diff]
+	external = /localhome/turchz/diff.py
+[user]
+	email = zak.turchansky@emc.com
+	name = Zak Turchansky
+[core]
+	editor = vim
+[alias]
+    autosquash = rebase -i --autosquash --autostash
+[push]
+	default = upstream
