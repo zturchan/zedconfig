@@ -115,7 +115,7 @@ fi
 
 export WORKON_HOME=~/Envs
 source /usr/local/bin/virtualenvwrapper.sh
-alias vatsenv='workon vatsEnv'
+#alias vatsenv='workon vatsEnv'
 alias rebash='source ~/.bashrc'
 alias startvats='source ~/vatsEnv/bin/activate'
 
@@ -131,26 +131,31 @@ alias glo='git log --oneline'
 alias spgearpy='/spgear/tools/bin/python'
 alias py27='/usr/bin/python'
 export PIPPATH='/localhome/turchz/.local/bin/pip'
-export PYTHONPATH='/localhome/turchz/lib/python'
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/dist-packages
-export PYTHONPATH=$PYTHONPATH:~/git/dist_services/queue-service/pikaqueue/
-export PYTHONPATH=$PYTHONPATH:~/git/dist_services/model/squirtle/
+export PYTHONPATH=""
+#export PYTHONPATH=$PYTHONPATH:~/git/dist_services/queue-service/pikaqueue/
+#export PYTHONPATH=$PYTHONPATH:~/git/dist_services/model/squirtle/
 export PYTHONPATH=$PYTHONPATH:~/git/dist_services/persist/
 export PYTHONPATH=$PYTHONPATH:~/git/dist_services/config-service/billspc/
-alias notes='vim /home/turchz/public_html/notes.txt'
+#export PYTHONPATH=$PYTHONPATH:/home/runner/lib/python
+export PYTHONPATH=$PYTHONPATH:/home/runner/.local/lib/python2.6/site-packages
+export PYTHONPATH=$PYTHONPATH:/home/runner/.local/bin/
+#export PYTHONPATH='/localhome/turchz/lib/python'
+alias notes='vim /home/turchz/public_html/notes.html'
 alias cim='vim'
 alias bashrc='vim ~/.bashrc'
 alias nosetests='clear;nosetests'
 alias i3config='vim ~/.i3/config'
 alias i3reload="i3-msg 'reload'"
 alias cd="cd -P"
-alias submitvtest="python /localhome/turchz/git/dist_services/vtest/vtest.py --nsfw a/D40"
+alias submitvtest="alias submitvtest;cd ~/vtest;python vtest.py submit -q vtest-staging --nsfw a/D40 --tests vtest.ui.clicontexts --artifactory-rpm --vats z/turchz/increase_rebuild_timeout"
 cdlatest () {
      cd $(ls -t | head -1) 
 }
 alias runprofoak="docker run --rm --privileged -p 2222:22 -p 33333:33333 -it profoak"
-alias runrattata="sudo docker run --rm --privileged -e 'RATTATA_QUEUE=vats' -e 'RATTATA_VPLEX=mercury-hermes' -e 'PYTHONPATH=/repo/model/squirtle:' --name rattata -it -v /localhome/turchz/git/dist_services/:/repo rattata"
-alias runspinarak="docker run --privileged -p 80:80 -p 443:443 spinarak"
+alias runrattata="docker run --rm --privileged -e 'RATTATA_QUEUE=vtest-staging' -e 'RATTATA_VPLEX=mercury-hermes' -e 'PYTHONPATH=/repo/model/squirtle:' --name rattata -it -v /home/runner/build_cache/sms/:/sms_tarballs/ rattata"
 alias ansible-playbook="/usr/local/bin/ansible-playbook"
 alias ansible="/usr/local/bin/ansible"
 alias devpiup="~/scripts/devpiup"
+alias purge="/home/turchz/scripts/purge.py"
+alias spgear="ssh turchz-u14.spgear.lab.emc.com"
