@@ -2,12 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -114,8 +108,8 @@ if ! shopt -oq posix; then
 fi
 
 export WORKON_HOME=~/Envs
-source /usr/local/bin/virtualenvwrapper.sh
-#alias vatsenv='workon vatsEnv'
+#source /usr/local/bin/virtualenvwrapper.sh
+alias vatsenv='workon vatsEnv'
 alias rebash='source ~/.bashrc'
 alias startvats='source ~/vatsEnv/bin/activate'
 
@@ -124,33 +118,33 @@ alias ll='ls -l'
 alias lc='clear;ls;'
 alias llc='clear;ll;'
 
-export PATH=/spgear/spgear/bin:/spgear/tools/bin:/opt/rational/clearcase/bin:/bin:/usr/bin:~runner/bin:/sbin:~/bin:~/.local/bin
-export PATH=$PATH:/home/runner/bin
-export PATH=$PATH:/usr/local/bin
+
+export PATH=$PATH:~runner/bin:/sbin:~/bin:~/.local/bin:/spgear/spgear/bin:/spgear/tools/bin:/opt/rational/clearcase/bin
+#export PATH=/usr/local/bin:$PATH
 alias glo='git log --oneline'
 alias spgearpy='/spgear/tools/bin/python'
 alias py27='/usr/bin/python'
 export PIPPATH='/localhome/turchz/.local/bin/pip'
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/dist-packages
-export PYTHONPATH=""
-#export PYTHONPATH=$PYTHONPATH:~/git/dist_services/queue-service/pikaqueue/
+export PYTHONPATH=~/git/dist_services/dist/helix:$PYTHONPATH
+export PYTHONPATH=~/git/dist_services/queue-service/pikaqueue/:$PYTHONPATH
 #export PYTHONPATH=$PYTHONPATH:~/git/dist_services/model/squirtle/
 export PYTHONPATH=$PYTHONPATH:~/git/dist_services/persist/
 export PYTHONPATH=$PYTHONPATH:~/git/dist_services/config-service/billspc/
 #export PYTHONPATH=$PYTHONPATH:/home/runner/lib/python
 export PYTHONPATH=$PYTHONPATH:/home/runner/.local/lib/python2.6/site-packages
 export PYTHONPATH=$PYTHONPATH:/home/runner/.local/bin/
+export PYTHONPATH=/usr/local/lib/python2.7/dist-packages:$PYTHONPATH
 #export PYTHONPATH='/localhome/turchz/lib/python'
 alias notes='vim /home/turchz/public_html/notes.html'
 alias cim='vim'
 alias bashrc='vim ~/.bashrc'
-alias nosetests='clear;nosetests'
+#alias nosetests='clear;nosetests'
 alias i3config='vim ~/.i3/config'
 alias i3reload="i3-msg 'reload'"
 alias cd="cd -P"
-alias submitvtest="alias submitvtest;cd ~/vtest;python vtest.py submit -q vtest-staging --nsfw a/D40 --tests vtest.ui.clicontexts --artifactory-rpm --vats z/turchz/increase_rebuild_timeout"
+alias submitvtest="alias submitvtest;cd ~/vtest;python vtest.py submit -q vtest-staging --nsfw a/D40 --nsfw-dir ~/git/nsfw --artifactory-rpm --nocores"
 cdlatest () {
-     cd $(ls -t | head -1) 
+     cd $(ls -t | head -1)
 }
 alias runprofoak="docker run --rm --privileged -p 2222:22 -p 33333:33333 -it profoak"
 alias runrattata="docker run --rm --privileged -e 'RATTATA_QUEUE=vtest-staging' -e 'RATTATA_VPLEX=mercury-hermes' -e 'PYTHONPATH=/repo/model/squirtle:' --name rattata -it -v /home/runner/build_cache/sms/:/sms_tarballs/ rattata"
@@ -159,3 +153,8 @@ alias ansible="/usr/local/bin/ansible"
 alias devpiup="~/scripts/devpiup"
 alias purge="/home/turchz/scripts/purge.py"
 alias spgear="ssh turchz-u14.spgear.lab.emc.com"
+alias runraticate="alias runraticate; ~/git/dist_services/vats-consumer/launch-consumer.py consume -q vtest-staging --sms-path /home/runner/build_cache/sms/smsv2-D40.0.0.0.tgz -s mercury-hermes"
+alias build="/usr/local/bin/buildclient"
+alias queuestatus="~/scripts/precheckin-status -c"
+alias watchsqueues="~/scripts/watch-precheckin -c"
+alias zreview2="/home/turchz/scripts/zreview2.py"
