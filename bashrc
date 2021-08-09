@@ -115,21 +115,50 @@ fi
 
 #source /usr/local/bin/virtualenvwrapper.sh
 alias rebash='source ~/.bashrc'
-
+alias gs='git status'
+alias grh='git reset --hard'
+alias gca='git commit --amend'
+alias grc='git rebase --continue'
+alias gcf='git commit --fixup'
+alias gri='git rebase -i'
+alias gcu='git reset HEAD~'
 alias glr='git log -p --reverse `git merge-base HEAD @{u}`..HEAD'
+alias gdt='git difftool'
+alias gcp='git cherry-pick'
 alias ll='ls -l'
 alias lc='clear;ls;'
 alias llc='clear;ll;'
+alias glf='git diff-tree --no-commit-id --name-only -r'
+alias gsc='cat .git/rebase-merge/message'
+alias gdc='git diff --cached'
+alias gitdiff='~/git/git-diff-blame/git-diff-blame'
+alias gco='git checkout'
 
-
-export PATH=$PATH:~runner/bin:/sbin:~/bin:~/.local/bin:/spgear/spgear/bin:/spgear/tools/bin:/opt/rational/clearcase/bin
-#export PATH=/usr/local/bin:$PATH
 alias glo='git log --oneline'
+alias glon='git log HEAD ^origin/master --no-merges --oneline'
+alias glon4866='git log HEAD ^origin/4866-1155-and-improvements --no-merges --oneline'
+alias glodiff='git log --oneline origin/master..HEAD'
+alias gsf='git show --pretty="" --name-only'
 alias cim='vim'
 alias bashrc='vim ~/.bashrc'
 alias i3config='vim ~/.i3/config'
 alias i3reload="i3-msg 'reload'"
+alias makebranch='~/git/zedconfig/scripts/makebranch.sh'
+alias deletebranch='~/git/zedconfig/scripts/deletebranch.sh'
+alias rakehelp='cat ~/scratch/rakehelp.txt'
+
+#CT Specific aliases
+alias migrate='yes YES | ./src/CompTracker.Data.Migrator/bin/CompTracker.Data.Migrator.exe'
+
+export PATH="C:\Ruby187\bin:$PATH"
+
+export database="CompTracker50_Dev"
+
 alias cd="cd -P"
 cdlatest () {
      cd $(ls -t | head -1)
 }
+cd ~/git/CompTracker.Web
+
+
+
