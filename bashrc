@@ -113,7 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#source /usr/local/bin/virtualenvwrapper.sh
 alias rebash='source ~/.bashrc'
 alias gs='git status'
 alias grh='git reset --hard'
@@ -133,7 +132,6 @@ alias gsc='cat .git/rebase-merge/message'
 alias gdc='git diff --cached'
 alias gitdiff='~/git/git-diff-blame/git-diff-blame'
 alias gco='git checkout'
-
 alias glo='git log --oneline'
 alias glon='git log HEAD ^origin/master --no-merges --oneline'
 alias glon4866='git log HEAD ^origin/4866-1155-and-improvements --no-merges --oneline'
@@ -145,12 +143,9 @@ alias i3config='vim ~/.i3/config'
 alias i3reload="i3-msg 'reload'"
 alias makebranch='~/git/zedconfig/scripts/makebranch.sh'
 alias deletebranch='~/git/zedconfig/scripts/deletebranch.sh'
-alias rakehelp='cat ~/scratch/rakehelp.txt'
 
 #CT Specific aliases
 alias migrate='yes YES | ./src/CompTracker.Data.Migrator/bin/CompTracker.Data.Migrator.exe'
-
-export PATH="C:\Ruby187\bin:$PATH"
 
 export database="CompTracker50_Dev"
 
