@@ -1,7 +1,7 @@
 name: Create Issue to Update Escrow Documentation
 on:
   schedule:
-    - cron: 36,38,39,40,41 * * * *
+    - cron: 51,52,54,55,56,57,58,59,0 * * * *
 
 jobs:
   create_issue:
@@ -20,5 +20,5 @@ jobs:
             Make sure the escrow docs are up to date with the latest workflows.
           pinned: false
           close-previous: false
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #env:
+            #            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
