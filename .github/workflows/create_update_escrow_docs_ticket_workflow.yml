@@ -1,7 +1,7 @@
 name: Create Issue to Update Escrow Documentation
 on:
   schedule:
-    - cron: *\/2 * * * *
+    - cron: 36,38,39,40,41 * * * *
 
 jobs:
   create_issue:
