@@ -132,23 +132,28 @@ alias gsc='cat .git/rebase-merge/message'
 alias gdc='git diff --cached'
 alias gitdiff='~/git/git-diff-blame/git-diff-blame'
 alias gco='git checkout'
-alias glo='git log --oneline'
-alias glon='git log HEAD ^origin/master --no-merges --oneline'
+alias glo='git log --pretty=format:"%C(auto,cyan)%h%x09%C(auto,magenta)%an%x09%C(auto,yellow)%ad%x09%Creset%s"'
+alias glon='git log HEAD ^@{u} --no-merges --pretty=format:"%C(auto,cyan)%h%x09%C(auto,magenta)%an%x09%C(auto,yellow)%ad%x09%Creset%s"'
 alias glon4866='git log HEAD ^origin/4866-1155-and-improvements --no-merges --oneline'
 alias glodiff='git log --oneline origin/master..HEAD'
 alias gsf='git show --pretty="" --name-only'
+alias gsn='git log --diff-filter=A --stat'
 alias cim='vim'
 alias bashrc='vim ~/.bashrc'
 alias i3config='vim ~/.i3/config'
 alias i3reload="i3-msg 'reload'"
 alias makebranch='~/git/zedconfig/scripts/makebranch.sh'
 alias deletebranch='~/git/zedconfig/scripts/deletebranch.sh'
+alias gitdiffn='~/git/zedconfig/scripts/git-diffn.sh'
+alias gti='git'
 
 #CT Specific aliases
 alias migrate='yes YES | ./src/CompTracker.Data.Migrator/bin/CompTracker.Data.Migrator.exe'
-
+alias ctclean='~/git/zedconfig/scripts/ctclean.sh'
+alias bgservice='src/CompTracker.BackgroundService/bin/CompTracker.BackgroundService.exe'
 export database="CompTracker50_Dev"
-
+alias 5421="git checkout 5421-performance-upgrades-winter-2023"
+alias 5422="git checkout 5422-spring-2024"
 alias cd="cd -P"
 cdlatest () {
      cd $(ls -t | head -1)
